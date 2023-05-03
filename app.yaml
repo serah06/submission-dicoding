@@ -1,17 +1,12 @@
-runtime: python37
+runtime: python27
+api_version: 1
+threadsafe: true
 
 handlers:
-- url: /.*
-  static_files: index.html
-  upload: index.html
+- url: /
+  static_files: www/index.html
+  upload: www/index.html
 
-- url: /style.css
-  static_files: style.css
-  upload: style.css
-
-- url: /.*\.(gif|png|jpg|jpeg|ico|svg|js|css)$
-  static_files: \1
-  upload: (.*\.(gif|png|jpg|jpeg|ico|svg|js|css))$
-
-skip_files:
-- ^(?!index\.html|style\.css$)
+- url: /(.*)
+  static_files: www/\1
+  upload: www/(.*)
